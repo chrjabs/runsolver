@@ -286,8 +286,8 @@ private:
   // when the solver uses less than cpuUsageThreshold % of the CPU,
   // try to identify process of other users which use more than
   // heavyProcessThreshold % of the CPU
-  static const float cpuUsageThreshold=0.8; // % of CPU
-  static const float heavyProcessThreshold=0.1; // % of CPU
+  static const float cpuUsageThreshold; // % of CPU
+  static const float heavyProcessThreshold; // % of CPU
 
   pid_t childpid; // pid of the process we're watching
   bool solverIsRunning;
@@ -1826,6 +1826,9 @@ int main(int argc, char **argv)
     exit(1);
   }
 }
+
+const float RunSolver::cpuUsageThreshold = 0.8;
+const float RunSolver::heavyProcessThreshold = 0.1;
 
 /*
 setitimer(ITIMER_PROF,...) to receive SIGPROF regularly
